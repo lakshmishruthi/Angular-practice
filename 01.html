@@ -4,10 +4,10 @@
 	<title></title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	<script type="text/javascript">
-		var sample = angular.module('sample', []).run(['$rootScope', function($rootScope) {
-			$rootScope.taxPercentage = 20;
-		}]);
-		sample.controller('emp', ['$scope', function ($scope) {
+		var sample = angular.module('sample', []);
+
+		sample.controller('emp', ['$scope', '$rootScope', function ($scope, $rootScope) {
+			$rootScope.taxPercentage = 30;
 			$scope.Name = 'John';
 		}]);
 		sample.controller('empDetails', ['$scope', function ($scope) {
