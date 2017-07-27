@@ -8,11 +8,26 @@
 		sample.controller('emp', ['$scope', function ($scope) {
 			$scope.Name = 'John';
 		}]);
+		sample.controller('empDetails', ['$scope', function ($scope) {
+			$scope.Sal = 5500;
+		}]);
+		sample.controller('empPayCheck', ['$scope', function ($scope) {
+			$scope.getTax = function () {
+				return $scope.Sal * 30 / 100;
+			};
+		}]);
 	</script>
 </head>
 <body>
-	<div ng-app='sample' ng-controller='emp'>
-		Hello {{Name}}!
+	<div ng-app='sample'>
+		<div ng-controller='emp'>
+			<div ng-controller='empDetails'>
+				Hello {{Name}}, your salary is {{Sal}}.
+				<div ng-controller='empPayCheck'>
+					You pay tax of {{getTax()}} bucks.
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
