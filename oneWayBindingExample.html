@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script type="text/javascript" src="oneWayBindingExample.js"></script>
+</head>
+<body ng-app='app'>
+	<div ng-controller='oneWayBindingCtrl'>
+		<div>
+			The value of a is {{a}}. <br/>
+			The value of b is {{b}}. <br/>
+		</div>
+		<hr/>
+		The value of a is <span ng-bind='a'></span>. <br/>
+		The value of b is <span ng-bind='b'></span>. <br/>
+		<hr/>
+
+		The sum is {{sum}}
+		<br>
+		<button ng-click='doDoubleAndSum()'>Calculate</button>
+	</div>
+</body>
+</html>
