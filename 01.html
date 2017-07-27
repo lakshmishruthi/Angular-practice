@@ -4,16 +4,18 @@
 	<title></title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	<script type="text/javascript">
-		var sample = angular.module('sample', []);
+		var sample = angular.module('sample', []).run(['$rootScope', function($rootScope) {
+			$rootScope.taxPercentage = 20;
+		}]);
 		sample.controller('emp', ['$scope', function ($scope) {
 			$scope.Name = 'John';
 		}]);
 		sample.controller('empDetails', ['$scope', function ($scope) {
 			$scope.Sal = 5500;
 		}]);
-		sample.controller('empPayCheck', ['$scope', function ($scope) {
+		sample.controller('empPayCheck', ['$scope', '$rootScope', function ($scope, $rootScope) {
 			$scope.getTax = function () {
-				return $scope.Sal * 30 / 100;
+				return $scope.Sal * $rootScope.taxPercentage / 100;
 			};
 		}]);
 	</script>
